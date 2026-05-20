@@ -26,6 +26,14 @@ function isEnoviHost(host = '') {
   );
 }
 
+function isRamonHost(host = '') {
+  const h = host.toLowerCase();
+  return (
+    h.includes('ramon-s-garcia.tech') ||
+    h.includes('www.ramon-s-garcia.tech')
+  );
+}
+
 // ======================================================
 // ROOT ROUTE - CHOOSE HOMEPAGE BY DOMAIN
 // ======================================================
@@ -40,14 +48,18 @@ app.get('/', (req, res) => {
     return res.sendFile(path.join(__dirname, 'sites', 'enovi_world', 'index.html'));
   }
 
+  if (isRamonHost(host)) {
+    return res.sendFile(path.join(__dirname, 'sites', 'ramon-s-garcia', 'index.html'));
+  }
+
   return res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 // ======================================================
-// BIBLE TEXT & ENOVI STATIC FILES BY DOMAIN
+// BIBLE TEXT, ENOVI, AND RAMON STATIC FILES BY DOMAIN
 // This lets /css, /img, /js, etc. come from correct site
 // when the request hostname is bibletextandcontext.com
-// or enoviworld.com
+// enoviworld.com, or ramon-s-garcia.tech
 // ======================================================
 app.use((req, res, next) => {
   const host = req.headers.host || '';
@@ -58,6 +70,10 @@ app.use((req, res, next) => {
   
   if (isEnoviHost(host)) {
     return express.static(path.join(__dirname, 'sites', 'enovi_world'))(req, res, next);
+  }
+
+  if (isRamonHost(host)) {
+    return express.static(path.join(__dirname, 'sites', 'ramon-s-garcia'))(req, res, next);
   }
 
   next();
@@ -74,6 +90,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // ======================================================
 app.use('/sites/bible_text_context', express.static(path.join(__dirname, 'sites', 'bible_text_context')));
 app.use('/sites/enovi_world', express.static(path.join(__dirname, 'sites', 'enovi_world')));
+app.use('/sites/ramon-s-garcia', express.static(path.join(__dirname, 'sites', 'ramon-s-garcia')));
 
 // ======================================================
 // ARCADE GAMES - NEW STRUCTURE
@@ -142,6 +159,7 @@ app.listen(HTTP_PORT, () => {
   console.log(`  - G6 Media root served from /public`);
   console.log(`  - Bible Text & Context root served from /sites/bible_text_context by domain check`);
   console.log(`  - Enovi World served from /sites/enovi_world by domain check`);
+  console.log(`  - Ramon S. Garcia served from /sites/ramon-s-garcia by domain check`);
   console.log(`  - Arcade served from /arcade with both new and legacy URLs`);
   console.log(`  - Worlds served from /worlds`);
   console.log(`  - Legacy story URLs still active during transition`);
