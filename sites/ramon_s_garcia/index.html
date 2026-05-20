@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ramon S. Garcia</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #111318;
+      --panel: #181c24;
+      --panel-soft: #202633;
+      --text: #f2f5f8;
+      --muted: #a9b3c2;
+      --line: #303848;
+      --accent: #5cc8ff;
+      --accent-2: #ffd166;
+      --good: #8ee6a5;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        linear-gradient(135deg, rgba(92, 200, 255, 0.14), transparent 34%),
+        linear-gradient(315deg, rgba(255, 209, 102, 0.10), transparent 32%),
+        var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.55;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .shell {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 34px 0 42px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .brand strong {
+      font-size: clamp(1.35rem, 3vw, 2.2rem);
+      letter-spacing: 0;
+    }
+
+    .brand span {
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+
+    nav a {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 13px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.94rem;
+      background: rgba(24, 28, 36, 0.72);
+    }
+
+    nav a:hover {
+      border-color: var(--accent);
+      color: var(--text);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+      gap: 28px;
+      align-items: stretch;
+      padding: 42px 0 30px;
+    }
+
+    .intro {
+      padding: 34px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(24, 28, 36, 0.84);
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 18px;
+      color: var(--good);
+      font-size: 0.92rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .status::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--good);
+      box-shadow: 0 0 20px rgba(142, 230, 165, 0.8);
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 780px;
+      font-size: clamp(2.3rem, 7vw, 5.2rem);
+      line-height: 0.98;
+      letter-spacing: 0;
+    }
+
+    .intro p {
+      max-width: 720px;
+      margin: 20px 0 0;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .notice {
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+    }
+
+    .notice h2 {
+      margin: 0 0 12px;
+      font-size: 1.2rem;
+      color: var(--accent-2);
+    }
+
+    .notice p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 12px;
+    }
+
+    .card {
+      min-height: 230px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(24, 28, 36, 0.88);
+    }
+
+    .card h2 {
+      margin: 0;
+      font-size: 1.15rem;
+    }
+
+    .card p {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .tag {
+      align-self: flex-start;
+      padding: 6px 9px;
+      border-radius: 999px;
+      background: var(--panel-soft);
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+    }
+
+    .link-list {
+      display: grid;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .link-list a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .link-list a span {
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    footer {
+      margin-top: 30px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    @media (max-width: 900px) {
+      header,
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      nav {
+        justify-content: flex-start;
+      }
+
+      .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      .shell {
+        width: min(100% - 24px, 1120px);
+        padding-top: 22px;
+      }
+
+      .intro,
+      .notice,
+      .card {
+        padding: 20px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      nav a {
+        flex: 1 1 auto;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <div class="brand">
+        <strong>Ramon S. Garcia</strong>
+        <span>Tech, coding, experiments, and playable prototypes.</span>
+      </div>
+      <nav aria-label="Main navigation">
+        <a href="#intro">Intro</a>
+        <a href="#blog">Blog</a>
+        <a href="#webapps">Webapps</a>
+        <a href="#games">Games</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="intro">
+        <div class="intro">
+          <div class="status">Under construction</div>
+          <h1>Building a home for code, tools, and game experiments.</h1>
+          <p>
+            This site will become the main landing page for projects by Ramon S. Garcia:
+            practical notes on tech and coding, small web applications, and JavaScript game
+            prototypes with links as each piece comes online.
+          </p>
+        </div>
+
+        <aside class="notice" aria-label="Site status">
+          <h2>Coming soon</h2>
+          <p>
+            The foundation is live. Content, project pages, demos, and game links will be
+            added as they are ready.
+          </p>
+        </aside>
+      </section>
+
+      <section class="grid" aria-label="Planned site sections">
+        <article class="card">
+          <div>
+            <span class="tag">Home</span>
+            <h2>Main Intro Page</h2>
+            <p>A central place for current work, featured projects, contact links, and quick updates.</p>
+          </div>
+          <div class="link-list">
+            <a href="#intro">View intro <span>ready</span></a>
+          </div>
+        </article>
+
+        <article class="card" id="blog">
+          <div>
+            <span class="tag">Writing</span>
+            <h2>Tech & Coding Blog</h2>
+            <p>Notes, walkthroughs, debugging stories, setup guides, and practical coding lessons.</p>
+          </div>
+          <div class="link-list">
+            <a href="#">Blog index <span>coming soon</span></a>
+          </div>
+        </article>
+
+        <article class="card" id="webapps">
+          <div>
+            <span class="tag">Tools</span>
+            <h2>Small Webapps</h2>
+            <p>Useful browser-based tools, experiments, utilities, calculators, dashboards, and demos.</p>
+          </div>
+          <div class="link-list">
+            <a href="#">Webapp list <span>coming soon</span></a>
+          </div>
+        </article>
+
+        <article class="card" id="games">
+          <div>
+            <span class="tag">Play</span>
+            <h2>JavaScript Game Prototypes</h2>
+            <p>A growing list of game prototypes, each with its own playable link once published.</p>
+          </div>
+          <div class="link-list">
+            <a href="#">Game prototype 1 <span>link pending</span></a>
+            <a href="#">Game prototype 2 <span>link pending</span></a>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      <span>&copy; 2026 Ramon S. Garcia. Site in active development.</span>
+    </footer>
+  </div>
+</body>
+</html>
