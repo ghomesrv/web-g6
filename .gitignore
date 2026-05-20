@@ -1,0 +1,20 @@
+node_modules/
+client/node_modules/
+certs/
+*.log
+.env
+.env.*
+web-g6.txt
+games_fantasy.old/
+games_fantasy.old2/
+
+# OS/editor noise
+Thumbs.db
+Desktop.ini
+.vscode/
+.idea/
+
+# Local backups / old copies
+server - only G6.js
+server original.js
+sites/enovi_world/index.copy - Copy.html

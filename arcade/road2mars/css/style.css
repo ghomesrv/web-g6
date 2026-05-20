@@ -1,0 +1,168 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0d1117;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #161b22;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+    padding: 20px;
+    border: 2px solid #00ffff;
+    max-width: 95vw;
+    max-height: 95vh;
+    position: relative;
+}
+canvas {
+    background-color: #010409;
+    border: 2px solid #00ffff;
+    border-radius: 10px;
+    display: block;
+    touch-action: none;
+}
+.game-info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 0;
+    font-size: 1.1rem;
+    color: #b3d9ff;
+}
+.game-messages {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px 30px;
+    border-radius: 10px;
+    border: 1px solid #00ffff;
+    z-index: 10;
+}
+.game-messages h2 {
+    font-size: 2.5rem;
+    color: #00ffff;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px #00ffff;
+}
+.game-messages p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+.game-messages button {
+    background-color: #00ffff;
+    color: #0d1117;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(0, 255, 255, 0.4);
+}
+.game-messages button:hover {
+    background-color: #00e6e6;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 255, 255, 0.6);
+}
+.power-up-message {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 255, 0, 0.8);
+    color: #000;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 11;
+}
+.power-up-message.show {
+    opacity: 1;
+}
+/* Mobile Controls Styling */
+.mobile-controls {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-top: 15px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(22, 27, 34, 0.7);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    padding: 15px 10px 10px 10px;
+    box-sizing: border-box;
+    pointer-events: none;
+}
+.mobile-controls-left-group {
+    display: flex;
+    gap: 8px;
+}
+.mobile-control-button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    min-width: 80px;
+    min-height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: auto;
+}
+.mobile-control-button:active {
+    background-color: #0056b3;
+    transform: translateY(2px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+/* Hide mobile controls on larger screens (desktop) */
+@media (min-width: 769px) {
+    .mobile-controls {
+        display: none;
+    }
+}
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .game-messages h2 {
+        font-size: 2rem;
+    }
+    .game-messages p {
+        font-size: 1rem;
+    }
+    .game-messages button {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+    .game-info {
+        font-size: 0.9rem;
+    }
+    .mobile-control-button {
+        padding: 12px 20px;
+        font-size: 1rem;
+    }
+    .mobile-controls-left-group {
+        gap: 5px;
+    }
+}

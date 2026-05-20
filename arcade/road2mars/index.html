@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Road to Mars</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Tone.js for sound effects -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.min.js"></script>
+    <link rel="stylesheet" href="/road2mars/css/style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-info w-full text-center sm:text-left">
+            <span id="scoreDisplay" class="px-2">SCORE: 0</span>
+            <span id="levelDisplay" class="px-2">LEVEL: 1</span>
+            <span id="starsDisplay" class="px-2">STARS: 0</span>
+        </div>
+        <canvas id="gameCanvas"></canvas>
+
+        <div id="startScreen" class="game-messages">
+            <h2>ROAD TO MARS</h2>
+            <p>Use LEFT/RIGHT arrow keys or A/D to move.</p>
+            <p>Press SPACE to shoot.</p>
+            <p class="text-sm mt-4 italic">On mobile, use on-screen buttons to control.</p>
+            <button id="startButton">START GAME</button>
+        </div>
+
+        <div id="gameOverScreen" class="game-messages hidden">
+            <h2>GAME OVER</h2>
+            <p>Your Score: <span id="finalScore">0</span></p>
+            <p>Stars Collected: <span id="finalStars">0</span></p>
+            <button id="restartButton">RESTART</button>
+        </div>
+
+        <div id="powerUpMessage" class="power-up-message"></div>
+
+        <!-- Mobile Controls -->
+        <div class="mobile-controls" id="mobileControls">
+            <div class="mobile-controls-left-group">
+                <button id="leftButton" class="mobile-control-button">LEFT</button>
+                <button id="rightButton" class="mobile-control-button">RIGHT</button>
+            </div>
+            <button id="shootButton" class="mobile-control-button">SHOOT</button>
+        </div>
+    </div>
+    <script src="/road2mars/js/script.js"></script>
+</body>
+</html>

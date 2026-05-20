@@ -1,0 +1,93 @@
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f7f7f7;
+  color: #222;
+}
+
+header {
+  background: #222;
+  color: #fff;
+  text-align: center;
+  padding: 2rem 1rem 1rem 1rem;
+}
+
+.banner-logo {
+  width: 100%;
+  max-width: 900px;   /* Adjust as needed for your layout */
+  height: auto;
+  display: block;
+  margin: 0 auto 1rem auto; /* Center the image */
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  letter-spacing: 2px;
+}
+
+main {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.intro p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #222;
+  color: #fff;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+.games-section {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.story-link {
+  display: inline-block;
+  margin: 1rem;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+  background: #77a6e8; /* Default color, you can individualize if you want */
+  transition: background 0.2s, transform 0.2s;
+}
+
+.story-link:hover {
+  background: #3477d4;
+  transform: translateY(-2px) scale(1.04);
+}
+
+.game-link {
+  display: inline-block;
+  margin: 1rem;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+  background: #77a6e8; /* Default color, you can individualize if you want */
+  transition: background 0.2s, transform 0.2s;
+}
+
+.game-link:hover {
+  background: #3477d4;
+  transform: translateY(-2px) scale(1.04);
+}

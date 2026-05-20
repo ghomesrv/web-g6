@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Towers of Hanoi</title>
+    <link rel="stylesheet" href="cs/style.css">
+</head>
+<body>
+    <h1>Towers of Hanoi</h1>
+
+    <div class="game-info">
+        <p>Disks: <span id="numDisksDisplay">0</span></p>
+        <p>Required Moves: <span id="requiredMovesDisplay">0</span></p>
+        <p>Your Moves: <span id="userMovesDisplay">0</span></p>
+    </div>
+
+    <div class="hanoi-container">
+        <div class="peg" id="peg1">
+            <div class="peg-base"></div>
+            <div class="peg-rod"></div>
+        </div>
+        <div class="peg" id="peg2">
+            <div class="peg-base"></div>
+            <div class="peg-rod"></div>
+        </div>
+        <div class="peg" id="peg3">
+            <div class="peg-base"></div>
+            <div class="peg-rod"></div>
+        </div>
+    </div>
+
+    <button id="resetButton">Reset Game</button>
+
+    <div id="messageDisplay" class="message"></div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

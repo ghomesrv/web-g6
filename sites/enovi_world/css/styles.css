@@ -1,0 +1,95 @@
+body {
+  min-height: 100vh;
+  background: radial-gradient(
+    circle at 60% 40%,
+    #e0c3fc 0%,
+    #b388f9 40%,
+    #8ec5fc 80%,
+    #f9f6ff 100%
+  );
+  margin: 0;
+  font-family: "Inter", Arial, sans-serif;
+}
+.enovi-logo {
+  font-family: "Orbitron", sans-serif;
+  font-size: 3.5rem;
+  color: #ff8ee6;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 12px #fff0fa, 0 0 8px #b388f9;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+}
+.hero-img {
+  width: 100%;
+  max-height: 620px;
+  object-fit: cover;
+  border-radius: 32px;
+  box-shadow: 0 8px 32px rgba(180, 136, 249, 0.18);
+  margin-bottom: 2rem;
+}
+.social-icons a {
+  color: #875acf;
+  font-size: 2rem;
+  text-decoration: none; /* Removes underline */
+  margin: 0 0.5rem;
+  transition: color 0.2s;
+}
+.social-icons a:hover {
+  color: #ff8ee6;
+}
+.section {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 24px;
+  padding: 2rem 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 16px rgba(180, 136, 249, 0.08);
+}
+.back-link {
+  color: #b388f9;
+  text-decoration: underline;
+  font-size: 1.1rem;
+}
+.back-link:hover {
+  color: #ff8ee6;
+}
+
+.section-title {
+  font-family: "Orbitron", sans-serif;
+  color: #b388f9;
+}
+
+.section-text {
+  font-size: 1.1rem;
+  color: #5a3e8c;
+}
+
+.email-link {
+  color: #b388f9;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.email-link:hover {
+  color: #ff8ee6;
+  text-decoration: underline;
+}
+
+/* elegant divider */
+.divider-line {
+  height: 1px;
+  background: #b388f9;
+  width: 100px;
+}
+.divider-or {
+  color: #b388f9;
+  margin: 0 15px;
+  font-weight: bold;
+}
+
+/* separate sections with Icons */
+.email-icon,
+.form-icon {
+  color: #b388f9;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}

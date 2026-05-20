@@ -1,0 +1,237 @@
+/* General Body Styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* A slightly more modern font */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    /* --- OLD BACKGROUND --- */
+    /* background: linear-gradient(to bottom right, #ece9e6, #dee4ea); */ 
+    
+    /* --- NEW BACKGROUND IMAGE --- */
+    background: url('../img/TowersBackground.webp') no-repeat center center fixed; /* Path from CSS file */
+    background-size: cover; /* Ensures the image covers the entire background */
+    /* You might want to add a fallback color in case the image doesn't load: */
+    background-color: #34495e; /* A dark color that blends well with your potential image */
+    /* You can also add an overlay for text readability if the image is too busy */
+    position: relative; /* Needed for the pseudo-element overlay */
+
+    margin: 0; /* Remove default margin */
+    padding: 20px; /* Add some padding around the content */
+    color: #2c3e50; /* Darker text color */
+    min-height: 100vh; /* Ensure body takes full viewport height */
+    box-sizing: border-box; /* Include padding in element's total width and height */
+}
+
+/* Add an overlay if the background image makes text hard to read */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Dark semi-transparent overlay */
+    z-index: -1; /* Place it behind the content */
+}
+
+/* You might need to adjust text colors for better contrast against the new background */
+h1 {
+    color: #f8f8f8; /* Lighter color for better contrast */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* More pronounced shadow */
+    /* ... rest of h1 styles ... */
+}
+
+.game-info p {
+    color: #f1f4f0; /* Keep it dark enough for the white box */
+    /* ... rest of game-info p styles ... */
+}
+
+.game-info span {
+    color: #f34734; /* A slightly darker red if needed for contrast */
+    /* ... rest of game-info span styles ... */
+}
+
+/* You might need to make button text lighter if the button background is now dark */
+button {
+    color: white; /* Ensure text is white */
+    /* ... rest of button styles ... */
+}
+
+#messageDisplay {
+    color: #f1c40f; /* A brighter color for messages for better visibility */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7); /* Stronger shadow */
+    /* ... rest of messageDisplay styles ... */
+}
+
+
+
+
+/* Hanoi Container - Holds the pegs */
+.hanoi-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    width: 100%;
+    max-width: 950px; /* Slightly wider container */
+    height: 320px; /* Slightly taller to accommodate more disks if needed */
+    background: linear-gradient(to right, #b0c4de, #87ceeb); /* A cool blue gradient for the ground */
+    border-bottom: 12px solid #6a5acd; /* Thicker, more vibrant base line */
+    padding: 25px 0; /* More vertical padding */
+    box-sizing: border-box;
+    position: relative;
+    margin-bottom: 40px;
+    border-radius: 15px; /* Rounded corners for the container */
+    box-shadow: inset 0 0 15px rgba(0,0,0,0.2), 0 8px 20px rgba(0,0,0,0.2); /* Inner and outer shadow for depth */
+    overflow: hidden; /* Important to clip content that might exceed rounded corners */
+}
+
+/* Peg Styling */
+.peg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    width: 30%;
+    height: 100%;
+    position: relative;
+    /* Add a subtle visual separation or light border for pegs if desired, but not strictly necessary with disk shadows */
+}
+
+.peg-base {
+    width: 95%; /* Slightly wider base */
+    height: 18px; /* Slightly taller base */
+    background-color: #8B4513; /* Classic brown */
+    border-radius: 8px; /* More rounded */
+    position: absolute;
+    bottom: 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Shadow for the base */
+}
+
+.peg-rod {
+    width: 12px; /* Slightly thicker rod */
+    height: calc(100% - 18px); /* Adjust based on new base height */
+    background: linear-gradient(to top, #a0522d, #8B4513); /* Gradient for rod depth */
+    position: absolute;
+    bottom: 18px; /* Above the new base height */
+    border-radius: 6px;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.3); /* Inner shadow for rod depth */
+}
+
+/* Disks */
+.disk {
+    height: 30px; /* Keep height same */
+    background: linear-gradient(to right, #6d89ed, #6121b0); /* Blue gradient for disks */
+    border: 1px solid rgba(0,0,0,0.2); /* Softer border */
+    border-radius: 15px;
+    position: absolute;
+    bottom: 18px; /* Sits on the new peg base height */
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-sizing: border-box;
+    cursor: grab; /* Indicate it's draggable/clickable */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2), inset 0 0 8px rgba(255,255,255,0.5); /* Subtle 3D look */
+}
+
+.disk:nth-child(even) { /* Alternate disk colors for better distinction */
+    background: linear-gradient(to right, #da33f7, #a51afc); /* Orange/Yellow gradient */
+}
+
+.disk.selected {
+    background: linear-gradient(to right, #c02b2b, #df2121); /* Red gradient when selected */
+    border-color: #880000;
+    z-index: 100;
+    cursor: grabbing;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4), inset 0 0 10px rgba(255,255,255,0.7); /* More prominent shadow when selected */
+    transform: translateY(-5px); /* Lift slightly when selected */
+}
+
+
+/* Button Styling */
+button {
+    padding: 12px 25px; /* More padding */
+    font-size: 1.2em; /* Slightly larger text */
+    background: linear-gradient(to right, #2e9acc, #2783ae); /* Green gradient */
+    color: white;
+    border: none;
+    border-radius: 8px; /* Softer corners */
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow */
+    font-weight: 600;
+}
+
+button:hover {
+    background: linear-gradient(to right, #2776ae, #1e4f84); /* Darker green gradient on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2); /* More prominent shadow on hover */
+}
+
+button:active {
+    transform: translateY(0); /* Press down effect */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Message Display */
+#messageDisplay {
+    margin-top: 25px;
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #e74c3c; /* Keep red for errors/messages */
+    text-align: center;
+    min-height: 1.5em;
+    text-shadow: 0 0 5px rgba(255,255,255,0.5); /* Subtle glow for messages */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2em;
+    }
+    .game-info {
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+    }
+    .game-info p {
+        margin-bottom: 8px;
+        font-size: 1em;
+    }
+    .hanoi-container {
+        height: 280px;
+        padding: 20px 0;
+        max-width: 90%;
+    }
+    .peg-base {
+        height: 15px;
+    }
+    .peg-rod {
+        height: calc(100% - 15px);
+        bottom: 15px;
+    }
+    .disk {
+        bottom: 15px;
+        height: 25px; /* Slightly reduce disk height for smaller screens */
+    }
+    button {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
+    #messageDisplay {
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8em;
+    }
+    .game-info {
+        font-size: 0.9em;
+    }
+    .hanoi-container {
+        height: 220px;
+    }
+    .disk {
+        height: 20px;
+    }
+}
